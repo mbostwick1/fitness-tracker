@@ -12,8 +12,17 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.3",
-    "mongoose": "^5.3.16",
+    "express": "^4.17.1",
+    "mongoose": "^5.11.11",
     "morgan": "^1.9.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mbostwick1/fitness-tracker.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/mbostwick1/fitness-tracker/issues"
+  },
+  "homepage": "https://github.com/mbostwick1/fitness-tracker#readme"
 }
