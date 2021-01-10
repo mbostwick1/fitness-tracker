@@ -1,7 +1,5 @@
 # fitness-tracker
 
-# Mel-Employee-Tracker
-
 ## Table of Contents
 
 * [Objective](#Objective)
@@ -16,9 +14,10 @@
  
  ## Description
  
- [GitHub](https://github.com/mbostwick1/Mel-Employee-Tracker)
+[GitHub](https://github.com/mbostwick1/fitness-tracker)
+[Heroku](https://mb-fitness-tracker-gt-2021.herokuapp.com/)
   
- - This system allows the user to add, view, and update company employees, their managers, departments and roles.
+ - This app allows users to create a new and continue to update last workout, both cardio and resistance. 
  
   ## Installation
 
