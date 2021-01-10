@@ -1,10 +1,11 @@
 const express = require('express');
 const router = express.Router();
+const db = require("../models");
 
 router.get("/api/workouts", (req, res) => {
     db.Workout.find()
-    .then(dbWorkout => {
-        res.json(dbWorkout);
+    .then(workouts => {
+        res.json(workouts);
     })
     .catch(err => {
         res.status(400).json(err);
@@ -14,8 +15,8 @@ router.get("/api/workouts", (req, res) => {
 
 router.post("/api/workouts", ({ body }, res) => {
     db.Workout.create(body)
-    .then(dbWorkout => {
-        res.json(dbWorkout);
+    .then(workouts => {
+        res.json(workouts);
     })
     .catch(err => {
         res.json(err);
@@ -24,8 +25,8 @@ router.post("/api/workouts", ({ body }, res) => {
 
 router.get("/api/workouts/range", (req, res) => {
     db.Workout.find()
-    .then(dbWorkout => {
-        res.json(dbWorkout);
+    .then(workouts => {
+        res.json(workouts);
     })
     .catch(err => {
         res.status(400).json(err);
@@ -39,8 +40,8 @@ router.get("/api/workouts/:id", (req, res) => {
         const { id } = req.params;
         db.Workout.findOne({
             _id: id,
-        }).then(dbWorkout => {
-            res.json(dbWorkout);
+        }).then(workouts => {
+            res.json(workouts);
         })
         .catch(err => {
             res.status(400).json
@@ -53,17 +54,11 @@ router.put("/api/workouts/:id", ({body, params}, res) => {
     const id = params.id;
     let savedExercises = [];
 
-    // gets all the currently saved exercises in the current workout
     db.Workout.find({_id: id})
-        .then(dbWorkout => {
-            // console.log(dbWorkout);
-            savedExercises = dbWorkout[0].exercises;
-            // console.log('savedExcercises', savedExercises);
-            // console.log('longway', dbWorkout[0].exercises);
+        .then(workouts => {
+            savedExercises = workouts[0].exercises;
             res.json(savedExercises);
-            // console.log('body', body);
             let allExercises = [...savedExercises, body];
-            // console.log('allExercises', allExercises);
             updateWorkout(allExercises);
         })
         .catch(err => {
