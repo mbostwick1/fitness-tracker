@@ -50,7 +50,6 @@ router.get("/api/workouts/:id", (req, res) => {
 });
 
 router.put("/api/workouts/:id", ({body, params}, res) => {
-    // console.log(body, params)
     const id = params.id;
     let savedExercises = [];
 
